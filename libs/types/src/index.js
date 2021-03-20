@@ -1,3 +1,3 @@
 export * from './lib/requests/requestItem';
-export * from './lib/requests/responseItem';
+export * from './lib/responses/responseItem';
 //# sourceMappingURL=index.js.map

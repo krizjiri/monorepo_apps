@@ -198,4 +198,4 @@ nx affected:e2e
                 React.createElement(Link, { to: "/" }, "Click here to go back to root page."))) })));
 }
 export default App;
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=App.js.map

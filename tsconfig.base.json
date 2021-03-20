@@ -10,12 +10,23 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@monorepo-test/shared": ["libs/shared/src/index.ts"]
+      "@monorepo-test/shared": [
+        "libs/shared/src/index.ts"
+      ],
+      "@monorepo-test/api": [
+        "libs/api/src/index.ts"
+      ],
+      "@monorepo-test/hooks": [
+        "libs/hooks/src/index.ts"
+      ]
     },
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
@@ -23,5 +34,8 @@
     "esModuleInterop": true,
     "jsx": "react"
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

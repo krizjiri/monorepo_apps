@@ -4,11 +4,19 @@
  */
 
 import express from 'express';
+import cors from 'cors';
+
 import { searchMusic } from 'apps/express-app/src/app/endpoints/lastfm/lastfm';
 import { searchMovie } from 'apps/express-app/src/app/endpoints/imdb/imdb';
 import { ResponseItem, SearchItemRequest } from 'libs/types/src';
 
 const app = express();
+
+app.use(
+  cors({
+    origin: '*',
+  }),
+);
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to express-app!' });
