@@ -1,13 +1,13 @@
 import { ResponseItem } from 'libs/types/src';
 
 const transformMusicSearchToResponse = (data: any): ResponseItem[] => {
-  const track = data?.results?.trackmatches?.track || [];
+  const tracks = data?.tracks?.items || [];
 
-  return track.map(item => {
+  return tracks.map(track => {
     return {
-      id: item.mbid,
-      name: item.name,
-      imgUrl: item.image.find(image => image.size === 'medium')?.['#text'],
+      id: track.id,
+      name: track.name,
+      imgUrl: track?.album?.images?.[0]?.url,
       mediaType: 'music',
     };
   });

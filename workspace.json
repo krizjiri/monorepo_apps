@@ -1,1 +1,381 @@
-{"version":2,"cli":{"defaultCollection":"@nrwl/react"},"generators":{"@nrwl/react":{"application":{"style":"@emotion/styled","linter":"eslint","babel":true},"component":{"style":"@emotion/styled"},"library":{"style":"@emotion/styled","linter":"eslint"}}},"projects":{"shared":{"root":"libs/shared","sourceRoot":"libs/shared/src","projectType":"library","targets":{"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["libs/shared/**/*.{ts,tsx,js,jsx}"]}},"test":{"executor":"@nrwl/jest:jest","outputs":["coverage/libs/shared"],"options":{"jestConfig":"libs/shared/jest.config.js","passWithNoTests":true}}}},"movies-app":{"root":"apps/movies-app","sourceRoot":"apps/movies-app/src","projectType":"application","targets":{"build":{"executor":"@nrwl/web:build","outputs":["{options.outputPath}"],"options":{"outputPath":"dist/apps/movies-app","index":"apps/movies-app/src/index.html","main":"apps/movies-app/src/main.tsx","polyfills":"apps/movies-app/src/polyfills.ts","tsConfig":"apps/movies-app/tsconfig.app.json","assets":["apps/movies-app/src/favicon.ico","apps/movies-app/src/assets"],"styles":[],"scripts":[],"webpackConfig":"@nrwl/react/plugins/webpack"},"configurations":{"production":{"fileReplacements":[{"replace":"apps/movies-app/src/environments/environment.ts","with":"apps/movies-app/src/environments/environment.prod.ts"}],"optimization":true,"outputHashing":"all","sourceMap":false,"extractCss":true,"namedChunks":false,"extractLicenses":true,"vendorChunk":false,"budgets":[{"type":"initial","maximumWarning":"2mb","maximumError":"5mb"}]}}},"serve":{"executor":"@nrwl/web:dev-server","options":{"buildTarget":"movies-app:build"},"configurations":{"production":{"buildTarget":"movies-app:build:production"}}},"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["apps/movies-app/**/*.{ts,tsx,js,jsx}"]}},"test":{"executor":"@nrwl/jest:jest","outputs":["coverage/apps/movies-app"],"options":{"jestConfig":"apps/movies-app/jest.config.js","passWithNoTests":true}}}},"movies-app-e2e":{"root":"apps/movies-app-e2e","sourceRoot":"apps/movies-app-e2e/src","projectType":"application","targets":{"e2e":{"executor":"@nrwl/cypress:cypress","options":{"cypressConfig":"apps/movies-app-e2e/cypress.json","tsConfig":"apps/movies-app-e2e/tsconfig.e2e.json","devServerTarget":"movies-app:serve"},"configurations":{"production":{"devServerTarget":"movies-app:serve:production"}}},"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["apps/movies-app-e2e/**/*.{js,ts}"]}}}},"utils":{"root":"libs/utils","sourceRoot":"libs/utils/src","projectType":"library","targets":{"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["libs/utils/**/*.ts"]}},"test":{"executor":"@nrwl/jest:jest","outputs":["coverage/libs/utils"],"options":{"jestConfig":"libs/utils/jest.config.js","passWithNoTests":true}}}},"types":{"root":"libs/types","sourceRoot":"libs/types/src","projectType":"library","targets":{"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["libs/types/**/*.ts"]}},"test":{"executor":"@nrwl/jest:jest","outputs":["coverage/libs/types"],"options":{"jestConfig":"libs/types/jest.config.js","passWithNoTests":true}}}},"shared-ui":{"root":"libs/shared-ui","sourceRoot":"libs/shared-ui/src","projectType":"library","targets":{"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["libs/shared-ui/**/*.ts"]}},"test":{"executor":"@nrwl/jest:jest","outputs":["coverage/libs/shared-ui"],"options":{"jestConfig":"libs/shared-ui/jest.config.js","passWithNoTests":true}}}},"express-app":{"root":"apps/express-app","sourceRoot":"apps/express-app/src","projectType":"application","prefix":"express-app","targets":{"build":{"executor":"@nrwl/node:build","outputs":["{options.outputPath}"],"options":{"outputPath":"dist/apps/express-app","main":"apps/express-app/src/main.ts","tsConfig":"apps/express-app/tsconfig.app.json","assets":["apps/express-app/src/assets"]},"configurations":{"production":{"optimization":true,"extractLicenses":true,"inspect":false,"fileReplacements":[{"replace":"apps/express-app/src/environments/environment.ts","with":"apps/express-app/src/environments/environment.prod.ts"}]}}},"serve":{"executor":"@nrwl/node:execute","options":{"buildTarget":"express-app:build"}},"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["apps/express-app/**/*.ts"]}},"test":{"executor":"@nrwl/jest:jest","outputs":["coverage/apps/express-app"],"options":{"jestConfig":"apps/express-app/jest.config.js","passWithNoTests":true}}}},"api":{"root":"libs/api","sourceRoot":"libs/api/src","projectType":"library","targets":{"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["libs/api/**/*.ts"]}},"test":{"executor":"@nrwl/jest:jest","outputs":["coverage/libs/api"],"options":{"jestConfig":"libs/api/jest.config.js","passWithNoTests":true}}}},"hooks":{"root":"libs/hooks","sourceRoot":"libs/hooks/src","projectType":"library","targets":{"lint":{"executor":"@nrwl/linter:eslint","options":{"lintFilePatterns":["libs/hooks/**/*.ts"]}},"test":{"executor":"@nrwl/jest:jest","outputs":["coverage/libs/hooks"],"options":{"jestConfig":"libs/hooks/jest.config.js","passWithNoTests":true}}}}},"defaultProject":"express-app"}
+{
+  "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "defaultProject": "express-app",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "@emotion/styled"
+      },
+      "library": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
+      }
+    }
+  },
+  "projects": {
+    "movies-app": {
+      "root": "apps/movies-app",
+      "sourceRoot": "apps/movies-app/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/movies-app",
+            "index": "apps/movies-app/src/index.html",
+            "main": "apps/movies-app/src/main.tsx",
+            "polyfills": "apps/movies-app/src/polyfills.ts",
+            "tsConfig": "apps/movies-app/tsconfig.app.json",
+            "assets": [
+              "apps/movies-app/src/favicon.ico",
+              "apps/movies-app/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/movies-app/src/environments/environment.ts",
+                  "with": "apps/movies-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "movies-app:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "movies-app:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/movies-app/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/movies-app"],
+          "options": {
+            "jestConfig": "apps/movies-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "movies-app-e2e": {
+      "root": "apps/movies-app-e2e",
+      "sourceRoot": "apps/movies-app-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/movies-app-e2e/cypress.json",
+            "tsConfig": "apps/movies-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "movies-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "movies-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/movies-app-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "utils": {
+      "root": "libs/utils",
+      "sourceRoot": "libs/utils/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/utils"],
+          "options": {
+            "jestConfig": "libs/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "types": {
+      "root": "libs/types",
+      "sourceRoot": "libs/types/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/types/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/types"],
+          "options": {
+            "jestConfig": "libs/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "express-app": {
+      "root": "apps/express-app",
+      "sourceRoot": "apps/express-app/src",
+      "projectType": "application",
+      "prefix": "express-app",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/express-app",
+            "main": "apps/express-app/src/main.ts",
+            "tsConfig": "apps/express-app/tsconfig.app.json",
+            "assets": ["apps/express-app/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/express-app/src/environments/environment.ts",
+                  "with": "apps/express-app/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "express-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/express-app/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/express-app"],
+          "options": {
+            "jestConfig": "apps/express-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "libs/api",
+      "sourceRoot": "libs/api/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api"],
+          "options": {
+            "jestConfig": "libs/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "hooks": {
+      "root": "libs/hooks",
+      "sourceRoot": "libs/hooks/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/hooks/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/hooks"],
+          "options": {
+            "jestConfig": "libs/hooks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "music-app": {
+      "root": "apps/music-app",
+      "sourceRoot": "apps/music-app/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/music-app",
+            "index": "apps/music-app/src/index.html",
+            "main": "apps/music-app/src/main.tsx",
+            "polyfills": "apps/music-app/src/polyfills.ts",
+            "tsConfig": "apps/music-app/tsconfig.app.json",
+            "assets": [
+              "apps/music-app/src/favicon.ico",
+              "apps/music-app/src/assets"
+            ],
+            "styles": ["apps/music-app/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/music-app/src/environments/environment.ts",
+                  "with": "apps/music-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "music-app:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "music-app:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/music-app/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/music-app"],
+          "options": {
+            "jestConfig": "apps/music-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "music-app-e2e": {
+      "root": "apps/music-app-e2e",
+      "sourceRoot": "apps/music-app-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/music-app-e2e/cypress.json",
+            "tsConfig": "apps/music-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "music-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "music-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/music-app-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  }
+}

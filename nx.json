@@ -1,1 +1,62 @@
-{"implicitDependencies":{"workspace.json":"*","package.json":{"dependencies":"*","devDependencies":"*"},"tsconfig.base.json":"*","tslint.json":"*",".eslintrc.json":"*","nx.json":"*"},"affected":{"defaultBase":"master"},"npmScope":"monorepo-test","tasksRunnerOptions":{"default":{"runner":"@nrwl/nx-cloud","options":{"cacheableOperations":["build","lint","test","e2e"],"accessToken":"NTk3ZTMxZDktYWM0NC00YThkLWEzOWEtZTZiZDE0ZTFhMmQyfHJlYWQtd3JpdGU=","canTrackAnalytics":false,"showUsageWarnings":true}}},"projects":{"shared":{"tags":[]},"movies-app":{"tags":[]},"movies-app-e2e":{"tags":[],"implicitDependencies":["movies-app"]},"utils":{"tags":[]},"types":{"tags":[]},"shared-ui":{"tags":[]},"express-app":{"tags":[]},"api":{"tags":[]},"hooks":{"tags":[]}}}
+{
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "monorepo-test",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "NTk3ZTMxZDktYWM0NC00YThkLWEzOWEtZTZiZDE0ZTFhMmQyfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "movies-app": {
+      "tags": []
+    },
+    "movies-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["movies-app"]
+    },
+    "utils": {
+      "tags": []
+    },
+    "types": {
+      "tags": []
+    },
+    "express-app": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "hooks": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "music-app": {
+      "tags": []
+    },
+    "music-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["music-app"]
+    }
+  }
+}

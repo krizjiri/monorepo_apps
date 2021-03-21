@@ -3,7 +3,7 @@ import { ResponseItem } from 'libs/types/src/lib/responses/responseItem';
 import { SearchItemRequest } from 'libs/types/src/lib/requests/requestItem';
 
 const endpoints = {
-  searchItems: (params: SearchItemRequest) =>
+  searchMovies: (params: SearchItemRequest) =>
     getApi().get<ResponseItem[]>('/movie', { params }),
 };
 
