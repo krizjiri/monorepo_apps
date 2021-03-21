@@ -1,5 +1,5 @@
-import { HomePage } from 'apps/music-app/src/app/pages/HomePage';
-import { DetailPage } from 'apps/music-app/src/app/pages/DetailPage';
+import { HomePage } from './pages/HomePage';
+import { DetailPage } from './pages/DetailPage';
 const routes = [
     {
         name: 'home',

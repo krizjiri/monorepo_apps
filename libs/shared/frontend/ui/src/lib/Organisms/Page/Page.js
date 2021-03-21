@@ -1,12 +1,10 @@
 import React from 'react';
-import { AppBar } from 'libs/ui/src/lib/Organisms/AppBar/AppBar';
-const Page = ({ title, children }) => {
-  return React.createElement(
-    'div',
-    null,
-    React.createElement(AppBar, { title: title }),
-    children,
-  );
+import { Box } from '@material-ui/core';
+import { AppBar, Loader } from '../../..';
+const Page = ({ title, children, loading }) => {
+    return (React.createElement(React.Fragment, null,
+        React.createElement(AppBar, { title: title }),
+        loading ? (React.createElement(Loader, null)) : (React.createElement(Box, { component: "div", p: 1 }, children))));
 };
 export { Page };
 //# sourceMappingURL=Page.js.map

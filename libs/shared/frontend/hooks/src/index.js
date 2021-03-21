@@ -1,2 +1,2 @@
-export * from './lib/Hooks';
+export * from './lib/useFetch';
 //# sourceMappingURL=index.js.map

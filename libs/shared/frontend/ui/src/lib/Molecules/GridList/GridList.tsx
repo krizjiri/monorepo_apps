@@ -8,9 +8,9 @@ import {
   Typography,
 } from '@material-ui/core';
 
-import { ResponseItem } from 'libs/types/src';
-import { Loader } from 'libs/ui/src/lib/Atoms/Loader/Loader';
 import InfoIcon from '@material-ui/icons/Info';
+import { ResponseItem } from '@monorepo-test/shared/types';
+import { Loader } from '../../..';
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HomeTemplate } from 'libs/ui/src/lib/Template/HomeTemplate';
+import { HomeTemplate } from '@monorepo-test/shared/frontend/ui';
 
 const HomePage: React.FC = () => {
   return (

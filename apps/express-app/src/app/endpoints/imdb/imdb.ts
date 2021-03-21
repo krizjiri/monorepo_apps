@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { ResponseItem } from 'libs/types/src';
-import { transformMovieSearchToResponse } from 'apps/express-app/src/app/endpoints/imdb/utils';
+
+import { ResponseItem } from '@monorepo-test/shared/types';
+import { transformMovieSearchToResponse } from './utils';
 
 const searchMovie = async (searchName: string): Promise<ResponseItem[]> => {
   try {

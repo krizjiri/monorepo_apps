@@ -1,6 +1,6 @@
-import { HomePage } from 'apps/music-app/src/app/pages/HomePage';
-import { DetailPage } from 'apps/music-app/src/app/pages/DetailPage';
-import { RouteType } from 'libs/types/src/lib/types';
+import { RouteType } from '@monorepo-test/shared/types';
+import { HomePage } from './pages/HomePage';
+import { DetailPage } from './pages/DetailPage';
 
 const routes: RouteType[] = [
   {

@@ -1,6 +1,6 @@
 import { useCallback, useState, useRef, useEffect, useMemo } from 'react';
 import { AxiosError, AxiosResponse } from 'axios';
-import { Id } from 'libs/types/src/lib/types';
+import { Id } from '@monorepo-test/shared/types';
 
 type Props<D, P> = {
   endpoint: (params?: P, id?: Id) => Promise<AxiosResponse<D>>;

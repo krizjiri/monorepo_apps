@@ -1,1 +1,1 @@
-export * from './lib/Hooks';
+export * from './lib/useFetch';

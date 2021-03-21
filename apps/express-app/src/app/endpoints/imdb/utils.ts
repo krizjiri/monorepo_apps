@@ -1,6 +1,6 @@
-import { ResponseItem } from 'libs/types/src';
+import { ResponseItem } from '@monorepo-test/shared/types';
 
-const transformMovieSearchToResponse = (data: any): ResponseItem[] => {
+const transformMovieSearchToResponse = (data): ResponseItem[] => {
   const movies = data?.d || [];
 
   return movies.map(item => {

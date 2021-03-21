@@ -1,10 +1,7 @@
 import React from 'react';
+import { HomeTemplate } from '@monorepo-test/shared/frontend/ui';
 
-import { HomeTemplate } from 'libs/ui/src/lib/Template/HomeTemplate';
-
-type Props = {};
-
-const HomePage: React.FC<Props> = () => {
+const HomePage: React.FC = () => {
   return (
     <HomeTemplate
       media="movie"

@@ -1,7 +1,6 @@
 import { getApi } from '@monorepo-test/shared/frontend/api';
-import { ResponseItem } from 'libs/types/src/lib/responses/responseItem';
-import { SearchItemRequest } from 'libs/types/src/lib/requests/requestItem';
 import { endpointPaths } from './endpointPaths';
+import { ResponseItem, SearchItemRequest } from '@monorepo-test/shared/types';
 
 const { searchMoviePath, searchMusicPath } = endpointPaths;
 

@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  SearchField,
-  SearchFieldProps,
-} from 'libs/ui/src/lib/Molecules/SearchField/SearchField';
 import { makeStyles } from '@material-ui/core';
+
+import { SearchField, SearchFieldProps } from '../../..';
 
 type Props = SearchFieldProps;
 

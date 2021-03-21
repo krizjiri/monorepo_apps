@@ -1,11 +1,8 @@
 import React from 'react';
-import { debounce } from '@material-ui/core';
+import { debounce, TextFieldProps } from '@material-ui/core';
 
-import {
-  TextField,
-  TextFieldProps,
-} from 'libs/ui/src/lib/Atoms/TextField/TextField';
-import { SEARCH_TIMEOUT_MS } from 'libs/constants/src/lib/constants';
+import { SEARCH_TIMEOUT_MS } from '@monorepo-test/shared/constants';
+import { TextField } from '../../..';
 
 type Props = {
   withDebounce?: boolean;

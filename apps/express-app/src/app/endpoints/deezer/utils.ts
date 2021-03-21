@@ -1,6 +1,6 @@
-import { ResponseItem } from 'libs/types/src';
+import { ResponseItem } from '@monorepo-test/shared/types';
 
-const transformMusicSearchToResponse = (data: any): ResponseItem[] => {
+const transformMusicSearchToResponse = (data): ResponseItem[] => {
   const tracks = data.data || [];
 
   return tracks.map(track => {

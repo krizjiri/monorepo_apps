@@ -1,4 +1,4 @@
-import { HomePage } from 'apps/movies-app/src/app/pages/Home';
+import { HomePage } from 'apps/movies-app/src/app/pages/HomePage';
 import { DetailPage } from 'apps/movies-app/src/app/pages/DetailPage';
 const routes = [
     {

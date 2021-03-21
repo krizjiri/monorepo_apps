@@ -1,6 +1,6 @@
 import { __awaiter } from "tslib";
 import axios from 'axios';
-import { transformMovieSearchToResponse } from 'apps/express-app/src/app/endpoints/imdb/utils';
+import { transformMovieSearchToResponse } from './utils';
 const searchMovie = (searchName) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const response = yield axios.get('https://imdb8.p.rapidapi.com/auto-complete', {

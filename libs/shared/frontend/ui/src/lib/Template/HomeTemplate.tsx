@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useFetch } from 'libs/hooks/src/lib/useFetch';
-import { ResponseItem, SearchItemRequest } from 'libs/types/src';
-import { Page } from 'libs/ui/src/lib/Organisms/Page/Page';
-import { SearchBar } from 'libs/ui/src/lib/Organisms/SearchBar/SearchBar';
-import { GridList } from 'libs/ui/src/lib/Molecules/GridList/GridList';
-import { endpoints } from 'libs/endpoints/src/lib/endpoints';
+import { endpoints } from '@monorepo-test/shared/endpoints';
+import { useFetch } from '@monorepo-test/shared/frontend/hooks';
+import { ResponseItem, SearchItemRequest } from '@monorepo-test/shared/types';
+import { GridList, Page, SearchBar } from '../..';
 
 const { searchMovies, searchMusic } = endpoints;
 

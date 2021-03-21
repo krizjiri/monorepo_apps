@@ -6,7 +6,7 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
-import { ResponseItem } from 'libs/types/src';
+import { ResponseItem } from '@monorepo-test/shared/types';
 
 const useStyles = makeStyles(() => ({
   icon: {

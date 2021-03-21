@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { transformMusicSearchToResponse } from 'apps/express-app/src/app/endpoints/deezer/utils';
+import { transformMusicSearchToResponse } from './utils';
 
 const searchDeezerMusic = async (searchName: string) => {
   try {
@@ -9,8 +9,6 @@ const searchDeezerMusic = async (searchName: string) => {
         q: searchName,
       },
     });
-
-    console.log(response);
 
     return transformMusicSearchToResponse(response.data);
   } catch (error) {

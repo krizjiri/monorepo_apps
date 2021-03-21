@@ -5,8 +5,10 @@
 import { __awaiter } from "tslib";
 import express from 'express';
 import cors from 'cors';
-import { searchMovie } from 'apps/express-app/src/app/endpoints/imdb/imdb';
-import { searchSpotifyMusic } from 'apps/express-app/src/app/endpoints/lastfm/spotify';
+import { endpointPaths } from '@monorepo-test/shared/endpoints';
+import { searchDeezerMusic } from './app/endpoints/deezer/deezer';
+import { searchMovie } from './app/endpoints/imdb/imdb';
+const { searchMusicPath, searchMoviePath } = endpointPaths;
 const app = express();
 app.use(cors({
     origin: '*',
@@ -14,11 +16,11 @@ app.use(cors({
 app.get('/api', (req, res) => {
     res.send({ message: 'Welcome to express-app!' });
 });
-app.get('/music', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const data = yield searchSpotifyMusic(req.query.name);
+app.get(searchMusicPath, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const data = yield searchDeezerMusic(req.query.name);
     res.send(data);
 }));
-app.get('/movie', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get(searchMoviePath, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(req);
     const data = yield searchMovie(req.query.name);
     res.send(data);
