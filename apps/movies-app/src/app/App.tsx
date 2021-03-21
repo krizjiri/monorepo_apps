@@ -4,7 +4,7 @@ import 'fontsource-roboto';
 
 import { Router } from 'libs/ui/src/lib/Molecules/Router/Router';
 import { routes } from 'apps/movies-app/src/app/routes';
-import { setupApi } from '@monorepo-test/api';
+import { setupApi } from '@monorepo-test/shared/frontend/api';
 
 const App = () => {
   useLayoutEffect(() => {

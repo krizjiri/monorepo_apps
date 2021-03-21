@@ -15,11 +15,18 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@monorepo-test/api": ["libs/api/src/index.ts"],
-      "@monorepo-test/hooks": ["libs/hooks/src/index.ts"],
-      "@monorepo-test/ui": ["libs/ui/src/index.ts"],
-      "@monorepo-test/constants": ["libs/constants/src/index.ts"],
-      "@monorepo-test/endpoints": ["libs/endpoints/src/index.ts"]
+      "@monorepo-test/shared/types": ["libs/shared/types/src/index.ts"],
+      "@monorepo-test/shared/constants": ["libs/shared/constants/src/index.ts"],
+      "@monorepo-test/shared/endpoints": ["libs/shared/endpoints/src/index.ts"],
+      "@monorepo-test/shared/frontend/hooks": [
+        "libs/shared/frontend/hooks/src/index.ts"
+      ],
+      "@monorepo-test/shared/frontend/api": [
+        "libs/shared/frontend/api/src/index.ts"
+      ],
+      "@monorepo-test/shared/frontend/ui": [
+        "libs/shared/frontend/ui/src/index.ts"
+      ]
     },
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,

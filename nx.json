@@ -1,13 +1,18 @@
 {
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "monorepo-test",
   "tasksRunnerOptions": {
     "default": {
@@ -21,17 +26,43 @@
     }
   },
   "projects": {
-    "movies-app": { "tags": [] },
-    "movies-app-e2e": { "tags": [], "implicitDependencies": ["movies-app"] },
-    "utils": { "tags": [] },
-    "types": { "tags": [] },
-    "express-app": { "tags": [] },
-    "api": { "tags": [] },
-    "hooks": { "tags": [] },
-    "ui": { "tags": [] },
-    "music-app": { "tags": [] },
-    "music-app-e2e": { "tags": [], "implicitDependencies": ["music-app"] },
-    "constants": { "tags": [] },
-    "endpoints": { "tags": [] }
+    "movies-app": {
+      "tags": []
+    },
+    "movies-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["movies-app"]
+    },
+    "utils": {
+      "tags": []
+    },
+    "express-app": {
+      "tags": []
+    },
+    "music-app": {
+      "tags": []
+    },
+    "music-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["music-app"]
+    },
+    "shared-types": {
+      "tags": []
+    },
+    "shared-constants": {
+      "tags": []
+    },
+    "shared-endpoints": {
+      "tags": []
+    },
+    "shared-frontend-hooks": {
+      "tags": []
+    },
+    "shared-frontend-api": {
+      "tags": []
+    },
+    "shared-frontend-ui": {
+      "tags": []
+    }
   }
 }
