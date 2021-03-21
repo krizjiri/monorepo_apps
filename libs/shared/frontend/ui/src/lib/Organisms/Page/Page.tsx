@@ -5,7 +5,7 @@ import { AppBar } from '../AppBar/AppBar';
 import { Loader } from '../../Atoms/Loader/Loader';
 
 type Props = {
-  title;
+  title: string;
   loading?: boolean;
 };
 

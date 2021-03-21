@@ -29,7 +29,7 @@
         "libs/shared/frontend/ui/src/index.ts"
       ]
     },
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
