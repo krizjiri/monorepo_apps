@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { NoMatch } from '../NoMatch/NoMatch';
+import { NoMatch } from '../../..';
 const Router = ({ routes }) => {
     return (React.createElement(Switch, null,
         routes.map(route => (React.createElement(Route, Object.assign({ key: route.name }, route)))),
