@@ -1,3 +1,10 @@
 {
-    "git.ignoreLimitWarning": true
+  "editor.formatOnSave": true,
+  "git.ignoreLimitWarning": true,
+  "prettier.configPath": ".prettierrc",
+  "prettier.requireConfig": true,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.alwaysShowStatus": true
 }

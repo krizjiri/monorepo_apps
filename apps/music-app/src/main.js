@@ -5,4 +5,3 @@ import App from './app/App';
 ReactDOM.render(React.createElement(React.StrictMode, null,
     React.createElement(BrowserRouter, null,
         React.createElement(App, null))), document.getElementById('root'));
-//# sourceMappingURL=main.js.map

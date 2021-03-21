@@ -9,10 +9,10 @@ import {
 } from '@material-ui/core';
 
 import InfoIcon from '@material-ui/icons/Info';
-import { ResponseItem } from '@monorepo-test/shared/types';
 import { Loader } from '../../Atoms/Loader/Loader';
+import { ResponseItem } from  '@monorepo-test/shared/types';
 
-const useStyles = makeStyles(theme => ({
+ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
