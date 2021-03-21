@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import 'fontsource-roboto';
 
 import { Router } from 'libs/ui/src/lib/Molecules/Router/Router';
 import { routes } from 'apps/movies-app/src/app/routes';

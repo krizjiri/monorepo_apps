@@ -11,7 +11,11 @@ const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '1rem',
+    marginTop: '2rem',
+    marginBottom: '2rem',
+  },
+  searchField: {
+    width: '700px',
   },
 }));
 
@@ -20,7 +24,7 @@ const SearchBar: React.FC<Props> = props => {
 
   return (
     <div className={classes.root}>
-      <SearchField size={'medium'} {...props} />
+      <SearchField size={'medium'} className={classes.searchField} {...props} />
     </div>
   );
 };

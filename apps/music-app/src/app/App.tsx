@@ -1,9 +1,14 @@
 import React, { useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import 'fontsource-roboto';
 
 import { Router } from 'libs/ui/src/lib/Molecules/Router/Router';
 import { routes } from 'apps/music-app/src/app/routes';
 import { setupApi } from '@monorepo-test/api';
+import { ThemeProvider } from '@emotion/react';
+import { Theme } from '@material-ui/core';
+
+const theme: Partial<Theme> = {};
 
 const App = () => {
   useLayoutEffect(() => {
@@ -11,9 +16,11 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Router routes={routes} />
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Router routes={routes} />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

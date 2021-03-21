@@ -8,8 +8,8 @@ import cors from 'cors';
 
 import { searchMovie } from 'apps/express-app/src/app/endpoints/imdb/imdb';
 import { ResponseItem, SearchItemRequest } from 'libs/types/src';
-import { searchSpotifyMusic } from 'apps/express-app/src/app/endpoints/lastfm/spotify';
 import { endpointPaths } from 'libs/endpoints/src/lib/endpointPaths';
+import { searchDeezerMusic } from 'apps/express-app/src/app/endpoints/deezer/deezer';
 
 const { searchMusicPath, searchMoviePath } = endpointPaths;
 
@@ -28,7 +28,7 @@ app.get('/api', (req, res) => {
 app.get<{}, ResponseItem[], {}, SearchItemRequest>(
   searchMusicPath,
   async (req, res) => {
-    const data = await searchSpotifyMusic(req.query.name);
+    const data = await searchDeezerMusic(req.query.name);
     res.send(data);
   },
 );

@@ -4,13 +4,13 @@ import {
   GridListTile,
   GridListTileBar,
   IconButton,
-  ListSubheader,
   makeStyles,
+  Typography,
 } from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info';
 
 import { ResponseItem } from 'libs/types/src';
 import { Loader } from 'libs/ui/src/lib/Atoms/Loader/Loader';
+import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,27 +31,46 @@ const useStyles = makeStyles(theme => ({
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
+  noData: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    marginTop: '20rem',
+  },
 }));
 
 type Props = {
   data: ResponseItem[];
   loading?: boolean;
   onItemClick?: (item: ResponseItem) => void;
+  cols?: number;
+  emptyPlaceholder?: string;
 };
 
-const GridList: React.FC<Props> = ({ data = [], onItemClick, loading }) => {
+const GridList: React.FC<Props> = ({
+  data = [],
+  onItemClick,
+  loading,
+  cols = 3,
+  emptyPlaceholder,
+}) => {
   const classes = useStyles();
 
   if (loading) {
     return <Loader />;
   }
 
+  if (data.length === 0) {
+    return (
+      <Typography variant="h5" gutterBottom className={classes.noData}>
+        {emptyPlaceholder || 'No data to display'}
+      </Typography>
+    );
+  }
+
   return (
     <div className={classes.root}>
-      <MUIGridList cellHeight={300} className={classes.gridList} cols={3}>
-        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
-          <ListSubheader component="div">Search results</ListSubheader>
-        </GridListTile>
+      <MUIGridList cellHeight={300} className={classes.gridList} cols={cols}>
         {data.map(item => (
           <GridListTile
             key={item.imgUrl}

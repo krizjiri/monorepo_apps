@@ -1,5 +1,5 @@
 import React from 'react';
-import { debounce, makeStyles } from '@material-ui/core';
+import { debounce } from '@material-ui/core';
 
 import {
   TextField,
@@ -12,15 +12,7 @@ type Props = {
   onChange?: (value: string) => void;
 } & Omit<TextFieldProps, 'onChange'>;
 
-const useStyles = makeStyles(() => ({
-  textField: {
-    width: '25ch',
-  },
-}));
-
 const SearchField: React.FC<Props> = ({ withDebounce, onChange, ...props }) => {
-  const classes = useStyles();
-
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = event.target;
 
@@ -36,8 +28,9 @@ const SearchField: React.FC<Props> = ({ withDebounce, onChange, ...props }) => {
   return (
     <TextField
       {...props}
-      className={classes.textField}
+      variant={props.variant}
       onChange={handleChange}
+      fullWidth
     />
   );
 };

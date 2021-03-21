@@ -19,6 +19,7 @@ type PayloadBag<D> = {
   loading: boolean;
   error?: AxiosError;
   data?: D;
+  reset?: () => void;
 };
 
 type ReturnTuple<D, P> = [(payload?: Payload<D, P>) => void, PayloadBag<D>];
@@ -76,7 +77,11 @@ const useFetch = <D, P>({
     request();
   }, []);
 
-  return useMemo(() => [fetch, { data, loading, error }], [
+  const reset = () => {
+    setData(undefined);
+  };
+
+  return useMemo(() => [fetch, { data, loading, error, reset }], [
     data,
     loading,
     error,

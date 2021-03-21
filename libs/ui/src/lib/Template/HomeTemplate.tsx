@@ -18,7 +18,7 @@ const HomeTemplate: React.FC<Props> = ({ pageTitle, searchTitle, media }) => {
   const endpoint = media === 'music' ? searchMusic : searchMovies;
 
   const [searchValue, setSearchValue] = useState('');
-  const [fetchList, { data, loading }] = useFetch<
+  const [fetchList, { data, loading, reset }] = useFetch<
     ResponseItem[],
     SearchItemRequest
   >({
@@ -26,11 +26,15 @@ const HomeTemplate: React.FC<Props> = ({ pageTitle, searchTitle, media }) => {
   });
 
   useEffect(() => {
-    const params = {
-      name: searchValue,
-    };
+    if (searchValue.length === 0) {
+      reset();
+    } else {
+      const params = {
+        name: searchValue,
+      };
 
-    fetchList({ params });
+      fetchList({ params });
+    }
   }, [searchValue]);
 
   return (
