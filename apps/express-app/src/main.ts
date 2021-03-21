@@ -10,7 +10,12 @@ import { ResponseItem, SearchItemRequest } from '@monorepo-test/shared/types';
 import { searchDeezerMusic } from './app/endpoints/deezer/deezer';
 import { searchMovie } from './app/endpoints/imdb/imdb';
 
-const { searchMusicPath, searchMoviePath } = endpointPaths;
+const {
+  searchMusicPath,
+  searchMoviePath,
+  getMovieDetail,
+  getMusicDetail,
+} = endpointPaths;
 
 const app = express();
 
@@ -40,6 +45,14 @@ app.get<unknown, ResponseItem[], unknown, SearchItemRequest>(
     res.send(data);
   },
 );
+
+app.get(getMovieDetail, async (req, res) => {
+  res.send('Movie detail');
+});
+
+app.get(getMusicDetail, async (req, res) => {
+  res.send('Music detail');
+});
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {

@@ -1,6 +1,8 @@
 const endpointPaths = {
-  searchMoviePath: '/movie',
+  searchMoviePath: '/movies',
   searchMusicPath: '/music',
+  getMovieDetail: '/movie',
+  getMusicDetail: '/song',
 };
 
 export { endpointPaths };
