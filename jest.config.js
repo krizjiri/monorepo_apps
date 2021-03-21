@@ -1,6 +1,6 @@
 module.exports = {
   projects: [
-    ,
+    undefined,
     '<rootDir>/apps/movies-app',
     '<rootDir>/libs/utils',
     '<rootDir>/libs/types',
@@ -9,5 +9,7 @@ module.exports = {
     '<rootDir>/libs/hooks',
     '<rootDir>/libs/ui',
     '<rootDir>/apps/music-app',
+    '<rootDir>/libs/constants',
+    '<rootDir>/libs/endpoints',
   ],
 };

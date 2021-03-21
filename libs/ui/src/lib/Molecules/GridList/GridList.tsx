@@ -10,6 +10,7 @@ import {
 import InfoIcon from '@material-ui/icons/Info';
 
 import { ResponseItem } from 'libs/types/src';
+import { Loader } from 'libs/ui/src/lib/Atoms/Loader/Loader';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,11 +35,16 @@ const useStyles = makeStyles(theme => ({
 
 type Props = {
   data: ResponseItem[];
+  loading?: boolean;
   onItemClick?: (item: ResponseItem) => void;
 };
 
-const GridList: React.FC<Props> = ({ data = [], onItemClick }) => {
+const GridList: React.FC<Props> = ({ data = [], onItemClick, loading }) => {
   const classes = useStyles();
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className={classes.root}>

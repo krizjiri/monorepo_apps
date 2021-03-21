@@ -1,0 +1,3 @@
+const SEARCH_TIMEOUT_MS = 300;
+
+export { SEARCH_TIMEOUT_MS };

@@ -9,6 +9,9 @@ import cors from 'cors';
 import { searchMovie } from 'apps/express-app/src/app/endpoints/imdb/imdb';
 import { ResponseItem, SearchItemRequest } from 'libs/types/src';
 import { searchSpotifyMusic } from 'apps/express-app/src/app/endpoints/lastfm/spotify';
+import { endpointPaths } from 'libs/endpoints/src/lib/endpointPaths';
+
+const { searchMusicPath, searchMoviePath } = endpointPaths;
 
 const app = express();
 
@@ -22,13 +25,16 @@ app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to express-app!' });
 });
 
-app.get<{}, {}, {}, SearchItemRequest>('/music', async (req, res) => {
-  const data = await searchSpotifyMusic(req.query.name);
-  res.send(data);
-});
+app.get<{}, ResponseItem[], {}, SearchItemRequest>(
+  searchMusicPath,
+  async (req, res) => {
+    const data = await searchSpotifyMusic(req.query.name);
+    res.send(data);
+  },
+);
 
 app.get<{}, ResponseItem[], {}, SearchItemRequest>(
-  '/movie',
+  searchMoviePath,
   async (req, res) => {
     console.log(req);
     const data = await searchMovie(req.query.name);

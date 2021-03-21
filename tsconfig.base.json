@@ -17,7 +17,9 @@
     "paths": {
       "@monorepo-test/api": ["libs/api/src/index.ts"],
       "@monorepo-test/hooks": ["libs/hooks/src/index.ts"],
-      "@monorepo-test/ui": ["libs/ui/src/index.ts"]
+      "@monorepo-test/ui": ["libs/ui/src/index.ts"],
+      "@monorepo-test/constants": ["libs/constants/src/index.ts"],
+      "@monorepo-test/endpoints": ["libs/endpoints/src/index.ts"]
     },
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
