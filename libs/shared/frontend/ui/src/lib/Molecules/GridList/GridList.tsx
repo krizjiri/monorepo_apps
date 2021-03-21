@@ -10,7 +10,7 @@ import {
 
 import InfoIcon from '@material-ui/icons/Info';
 import { ResponseItem } from '@monorepo-test/shared/types';
-import { Loader } from '../../..';
+import { Loader } from '../../Atoms/Loader/Loader';
 
 const useStyles = makeStyles(theme => ({
   root: {

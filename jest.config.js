@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/apps/music-app',
     '<rootDir>/libs/shared/constants',
     '<rootDir>/libs/shared/endpoints',
+    '<rootDir>/libs/shared/frontend/ui2',
   ],
 };

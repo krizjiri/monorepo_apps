@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { endpoints } from '@monorepo-test/shared/endpoints';
-import { useFetch } from '@monorepo-test/shared/frontend/hooks';
 import { ResponseItem, SearchItemRequest } from '@monorepo-test/shared/types';
-import { GridList, Page, SearchBar } from '../..';
-
+import { useFetch } from '@monorepo-test/shared/frontend/hooks';
+import { GridList, Page, SearchBar } from '@monorepo-test/shared/frontend/ui';
 const { searchMovies, searchMusic } = endpoints;
 
 type Props = {

@@ -1,18 +1,18 @@
 // atoms
-export * from './lib/Atoms/Loader/Loader';
-export * from './lib/Atoms/TextField/TextField';
+export * from '../../ui2/src/lib/Atoms/Loader/Loader';
+export * from '../../ui2/src/lib/Atoms/TextField/TextField';
 
 // molecules
-export * from './lib/Molecules/GridItem/GridItem';
-export * from './lib/Molecules/GridList/GridList';
-export * from './lib/Molecules/NoMatch/NoMatch';
-export * from './lib/Molecules/Router/Router';
-export * from './lib/Molecules/SearchField/SearchField';
+export * from '../../ui2/src/lib/Molecules/GridItem/GridItem';
+export * from '../../ui2/src/lib/Molecules/GridList/GridList';
+export * from '../../ui2/src/lib/Molecules/NoMatch/NoMatch';
+export * from '../../ui2/src/lib/Molecules/Router/Router';
+export * from '../../ui2/src/lib/Molecules/SearchField/SearchField';
 
 // organisms
-export * from './lib/Organisms/AppBar/AppBar';
-export * from './lib/Organisms/Page/Page';
-export * from './lib/Organisms/SearchBar/SearchBar';
+export * from '../../ui2/src/lib/Organisms/AppBar/AppBar';
+export * from '../../ui2/src/lib/Organisms/Page/Page';
+export * from '../../ui2/src/lib/Organisms/SearchBar/SearchBar';
 
 // templates
-export * from './lib/Template/HomeTemplate';
+export * from '../../ui2/src/lib/Template/HomeTemplate/HomeTemplate';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { NoMatch } from '../../..';
 import { RouteType } from '@monorepo-test/shared/types';
+import { NoMatch } from '../NoMatch/NoMatch';
 
 type Props = {
   routes: RouteType[];

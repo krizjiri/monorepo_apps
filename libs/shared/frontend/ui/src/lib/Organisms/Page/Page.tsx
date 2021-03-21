@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 
-import { AppBar, Loader } from '../../..';
+import { AppBar } from '../AppBar/AppBar';
+import { Loader } from '../../Atoms/Loader/Loader';
 
 type Props = {
   title;

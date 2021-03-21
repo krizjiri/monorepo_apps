@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-
-import { SearchField, SearchFieldProps } from '../../..';
-
-type Props = SearchFieldProps;
+import {
+  SearchField,
+  SearchFieldProps,
+} from '../../Molecules/SearchField/SearchField';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -16,6 +16,8 @@ const useStyles = makeStyles(() => ({
     width: '700px',
   },
 }));
+
+type Props = SearchFieldProps;
 
 const SearchBar: React.FC<Props> = props => {
   const classes = useStyles();

@@ -1,8 +1,6 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "defaultProject": "express-app",
   "generators": {
     "@nrwl/react": {
@@ -11,13 +9,8 @@
         "linter": "eslint",
         "babel": true
       },
-      "component": {
-        "style": "@emotion/styled"
-      },
-      "library": {
-        "style": "@emotion/styled",
-        "linter": "eslint"
-      }
+      "component": { "style": "@emotion/styled" },
+      "library": { "style": "@emotion/styled", "linter": "eslint" }
     }
   },
   "projects": {
@@ -70,13 +63,9 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "movies-app:build"
-          },
+          "options": { "buildTarget": "movies-app:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "movies-app:build:production"
-            }
+            "production": { "buildTarget": "movies-app:build:production" }
           }
         },
         "lint": {
@@ -108,9 +97,7 @@
             "devServerTarget": "movies-app:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "movies-app:serve:production"
-            }
+            "production": { "devServerTarget": "movies-app:serve:production" }
           }
         },
         "lint": {
@@ -128,9 +115,7 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/utils/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["libs/utils/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -173,15 +158,11 @@
         },
         "serve": {
           "executor": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "express-app:build"
-          }
+          "options": { "buildTarget": "express-app:build" }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/express-app/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["apps/express-app/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -242,13 +223,9 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "music-app:build"
-          },
+          "options": { "buildTarget": "music-app:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "music-app:build:production"
-            }
+            "production": { "buildTarget": "music-app:build:production" }
           }
         },
         "lint": {
@@ -280,16 +257,12 @@
             "devServerTarget": "music-app:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "music-app:serve:production"
-            }
+            "production": { "devServerTarget": "music-app:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/music-app-e2e/**/*.{js,ts}"]
-          }
+          "options": { "lintFilePatterns": ["apps/music-app-e2e/**/*.{js,ts}"] }
         }
       }
     },
@@ -300,9 +273,7 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/types/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["libs/shared/types/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -321,9 +292,7 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/constants/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["libs/shared/constants/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -342,9 +311,7 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/endpoints/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["libs/shared/endpoints/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -406,7 +373,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/frontend/ui/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/shared/frontend/ui/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
