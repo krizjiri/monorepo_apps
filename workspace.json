@@ -373,9 +373,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/shared/frontend/ui/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/shared/frontend/ui/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -385,6 +383,117 @@
             "jestConfig": "libs/shared/frontend/ui/jest.config.js",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "storybook": {
+      "root": "apps/storybook",
+      "sourceRoot": "apps/storybook/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/storybook",
+            "index": "apps/storybook/src/index.html",
+            "main": "apps/storybook/src/main.tsx",
+            "polyfills": "apps/storybook/src/polyfills.ts",
+            "tsConfig": "apps/storybook/tsconfig.app.json",
+            "assets": [
+              "apps/storybook/src/favicon.ico",
+              "apps/storybook/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/storybook/src/environments/environment.ts",
+                  "with": "apps/storybook/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": { "buildTarget": "storybook:build" },
+          "configurations": {
+            "production": { "buildTarget": "storybook:build:production" }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/storybook/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/storybook"],
+          "options": {
+            "jestConfig": "apps/storybook/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": { "configFolder": "apps/storybook/.storybook" }
+          },
+          "configurations": { "ci": { "quiet": true } }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/storybook",
+            "config": { "configFolder": "apps/storybook/.storybook" }
+          },
+          "configurations": { "ci": { "quiet": true } }
+        }
+      }
+    },
+    "storybook-e2e": {
+      "root": "apps/storybook-e2e",
+      "sourceRoot": "apps/storybook-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/storybook-e2e/cypress.json",
+            "tsConfig": "apps/storybook-e2e/tsconfig.e2e.json",
+            "devServerTarget": "storybook:serve"
+          },
+          "configurations": {
+            "production": { "devServerTarget": "storybook:serve:production" }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["apps/storybook-e2e/**/*.{js,ts}"] }
         }
       }
     }

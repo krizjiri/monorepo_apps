@@ -24,7 +24,12 @@ const SearchBar: React.FC<Props> = props => {
 
   return (
     <div className={classes.root}>
-      <SearchField size={'medium'} className={classes.searchField} {...props} />
+      <SearchField
+        size={'medium'}
+        className={classes.searchField}
+        fullWidth
+        {...props}
+      />
     </div>
   );
 };

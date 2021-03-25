@@ -1,24 +1,13 @@
 import React from 'react';
-import {
-  GridList as MUIGridList,
-  GridListTile,
-  GridListTileBar,
-  IconButton,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 
-import InfoIcon from '@material-ui/icons/Info';
 import { Loader } from '../../Atoms/Loader/Loader';
-import { ResponseItem } from  '@monorepo-test/shared/types';
+import { CardItem } from '../../Molecules/CardItem/CardItem';
+import { ResponseItem } from '@monorepo-test/shared/types';
 
- const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    flexGrow: 1,
   },
   gridList: {
     width: 1100,
@@ -37,6 +26,9 @@ import { ResponseItem } from  '@monorepo-test/shared/types';
     justifyContent: 'space-around',
     marginTop: '20rem',
   },
+  control: {
+    padding: theme.spacing(1),
+  },
 }));
 
 type Props = {
@@ -51,7 +43,6 @@ const GridList: React.FC<Props> = ({
   data = [],
   onItemClick,
   loading,
-  cols = 3,
   emptyPlaceholder,
 }) => {
   const classes = useStyles();
@@ -69,32 +60,19 @@ const GridList: React.FC<Props> = ({
   }
 
   return (
-    <div className={classes.root}>
-      <MUIGridList cellHeight={300} className={classes.gridList} cols={cols}>
-        {data.map(item => (
-          <GridListTile
-            key={item.imgUrl}
-            className={classes.gridItem}
+    <Grid container spacing={2} className={classes.root} justify="center">
+      {data.map(item => (
+        <Grid item>
+          <CardItem
+            title={item.name}
+            description={item.name}
             onClick={() => onItemClick(item)}
-          >
-            <img src={item.imgUrl} alt={item.imgUrl} />
-            <GridListTileBar
-              title={item.name}
-              subtitle={<span>type: {item.mediaType}</span>}
-              actionIcon={
-                <IconButton
-                  aria-label={`info about ${item.name}`}
-                  className={classes.icon}
-                >
-                  <InfoIcon />
-                </IconButton>
-              }
-            />
-          </GridListTile>
-        ))}
-      </MUIGridList>
-    </div>
+            imgUrl={item.imgUrl}
+          />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
-export { GridList };
+export { GridList, Props as GridListProps };

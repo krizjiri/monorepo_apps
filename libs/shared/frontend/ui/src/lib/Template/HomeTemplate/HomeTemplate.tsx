@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { endpoints } from '@monorepo-test/shared/endpoints';
 import { ResponseItem, SearchItemRequest } from '@monorepo-test/shared/types';
-import { useFetch } from '@monorepo-test/shared/frontend/hooks';
+import { Payload } from '@monorepo-test/shared/frontend/hooks';
 import { Page } from '../../Organisms/Page/Page';
 import { GridList } from '../../Molecules/GridList/GridList';
 import { SearchBar } from '../../Organisms/SearchBar/SearchBar';
-const { searchMovies, searchMusic } = endpoints;
 
 type Props = {
   pageTitle: string;
   searchTitle: string;
-  media: 'music' | 'movie';
+  fetchList: (request: Payload<ResponseItem[], SearchItemRequest>) => void;
+  data: ResponseItem[];
+  loading?: boolean;
+  reset?: () => void;
 };
 
-const HomeTemplate: React.FC<Props> = ({ pageTitle, searchTitle, media }) => {
-  const endpoint = media === 'music' ? searchMusic : searchMovies;
-
+const HomeTemplate: React.FC<Props> = ({
+  pageTitle,
+  searchTitle,
+  data = [],
+  fetchList,
+  loading,
+  reset,
+}) => {
   const [searchValue, setSearchValue] = useState('');
-  const [fetchList, { data, loading, reset }] = useFetch<
-    ResponseItem[],
-    SearchItemRequest
-  >({
-    endpoint,
-  });
 
   useEffect(() => {
     if (searchValue.length === 0) {
@@ -38,7 +38,11 @@ const HomeTemplate: React.FC<Props> = ({ pageTitle, searchTitle, media }) => {
 
   return (
     <Page title={pageTitle}>
-      <SearchBar label={searchTitle} onChange={setSearchValue} withDebounce />
+      <SearchBar
+        label={searchTitle}
+        onSubmit={setSearchValue}
+        loading={loading}
+      />
       <GridList data={data} loading={loading} />
     </Page>
   );
