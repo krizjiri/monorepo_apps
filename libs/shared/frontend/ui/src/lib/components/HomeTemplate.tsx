@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { ResponseItem, SearchItemRequest } from '@monorepo-test/shared/types';
 import { Payload } from '@monorepo-test/shared/frontend/hooks';
 import { SearchBar } from './SearchBar';
-import { GridList } from './GridList';
 import { Page } from './Page';
+import { CardGrid } from './CardGrid';
 
 type Props = {
   searchTitle: string;
@@ -43,7 +43,7 @@ const HomeTemplate: React.FC<Props> = ({
         onSubmit={setSearchValue}
         loading={loading}
       />
-      <GridList data={data} loading={loading} />
+      <CardGrid data={data} loading={loading} />
     </Page>
   );
 };

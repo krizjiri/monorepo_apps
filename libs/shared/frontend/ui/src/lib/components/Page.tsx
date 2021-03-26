@@ -2,11 +2,11 @@ import React from 'react';
 import { LinearProgress, makeStyles } from '@material-ui/core';
 
 type Props = {
-  loading: boolean;
+  loading?: boolean;
 };
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  linearProgress: {
     position: 'fixed',
     width: '100%',
     top: theme.spacing(8),
@@ -18,7 +18,7 @@ const Page: React.FC<Props> = ({ loading, children }) => {
 
   return (
     <div>
-      {loading && <LinearProgress className={classes.root} />}
+      {loading && <LinearProgress className={classes.linearProgress} />}
       {children}
     </div>
   );

@@ -3,12 +3,15 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 
 import { ResponseItem } from '@monorepo-test/shared/types';
 import { CardItem } from './CardItem';
-import { Loader } from './Loader';
+import { CardItemSkeleton } from './CardItemSkeleton';
+import { generateArrFromItem } from '../../../../utils/src/lib/generate';
+
+const skeletonItems = generateArrFromItem(<CardItemSkeleton />, 12);
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    maxWidth: 1300,
+    maxWidth: 1200,
     margin: 'auto',
   },
   gridItem: {
@@ -38,17 +41,13 @@ type Props = {
   emptyPlaceholder?: string;
 };
 
-const GridList: React.FC<Props> = ({
+const CardGrid: React.FC<Props> = ({
   data = [],
   onItemClick,
   loading,
   emptyPlaceholder,
 }) => {
   const classes = useStyles();
-
-  if (loading) {
-    return <Loader />;
-  }
 
   if (data.length === 0) {
     return (
@@ -60,18 +59,20 @@ const GridList: React.FC<Props> = ({
 
   return (
     <Grid container spacing={2} className={classes.root} justify="center">
-      {data.map(item => (
-        <Grid item>
-          <CardItem
-            title={item.name}
-            description={item.name}
-            onClick={() => onItemClick(item)}
-            imgUrl={item.imgUrl}
-          />
-        </Grid>
-      ))}
+      {loading
+        ? skeletonItems
+        : data.map(item => (
+            <Grid item>
+              <CardItem
+                title={item.name}
+                description={item.name}
+                onClick={() => onItemClick(item)}
+                imgUrl={item.imgUrl}
+              />
+            </Grid>
+          ))}
     </Grid>
   );
 };
 
-export { GridList, Props as GridListProps };
+export { CardGrid, Props as GridListProps };

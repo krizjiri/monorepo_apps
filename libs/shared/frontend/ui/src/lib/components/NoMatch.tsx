@@ -9,11 +9,13 @@ import {
 } from '@material-ui/core';
 import { Button } from './Button';
 import { useHistory } from 'react-router-dom';
+import { Page } from './Page';
 
 const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 700,
     margin: 'auto',
+    marginTop: theme.spacing(2),
   },
   header: {
     marginBottom: theme.spacing(1),
@@ -25,24 +27,30 @@ const NoMatch: React.FC = () => {
   const history = useHistory();
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardContent>
-          <Typography variant="h5" component="h2" className={classes.header}>
-            Page not found
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Maybe the page you are looking for has been removed, or you typed in
-            the wrong URL
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="medium" color="primary" onClick={() => history.push('/')}>
-          Go to homepage
-        </Button>
-      </CardActions>
-    </Card>
+    <Page>
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardContent>
+            <Typography variant="h5" component="h2" className={classes.header}>
+              Page not found
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Maybe the page you are looking for has been removed, or you typed
+              in the wrong URL
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button
+            size="medium"
+            color="primary"
+            onClick={() => history.push('/')}
+          >
+            Go to homepage
+          </Button>
+        </CardActions>
+      </Card>
+    </Page>
   );
 };
 

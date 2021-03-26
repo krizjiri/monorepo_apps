@@ -2,12 +2,12 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { nanoid } from 'nanoid';
 
-import { GridList, GridListProps } from '@monorepo-test/shared/frontend/ui';
 import { ResponseItem } from '@monorepo-test/shared/types';
 import { object, withKnobs } from '@storybook/addon-knobs';
+import { CardGrid, GridListProps } from '@monorepo-test/shared/frontend/ui';
 
 export default {
-  component: GridList,
+  component: CardGrid,
   title: 'Design system/Molecules/Grid list',
   decorators: [withKnobs],
   params: {
@@ -25,7 +25,7 @@ const getItem = (): ResponseItem => ({
 export const primary: Story<GridListProps> = () => {
   const data = object('data', Array(10).fill(getItem()));
 
-  return <GridList data={data} />;
+  return <CardGrid data={data} />;
 };
 
 primary.args = {};

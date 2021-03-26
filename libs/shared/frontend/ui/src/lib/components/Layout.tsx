@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     minHeight: '80vh',
     marginLeft: DRAWER_WIDTH,
-    marginTop: theme.spacing(6),
+    marginTop: theme.spacing(8),
     width: `calc(100% - ${DRAWER_WIDTH}px)`,
     padding: theme.spacing(2),
     transition: theme.transitions.create(['width', 'margin'], {
