@@ -12,6 +12,7 @@ type Props = {
   onSubmit: (value: string) => void;
   loading?: boolean;
   searchLabel?: string;
+  initialValue?: string;
 } & Omit<TextFieldProps, 'onSubmit' | 'onChange' | 'value'>;
 
 const useStyles = makeStyles(theme => ({
@@ -39,10 +40,12 @@ const SearchField: React.FC<Props> = ({
   onSubmit,
   searchLabel = 'Search',
   loading,
+  initialValue = '',
   ...props
 }) => {
   const classes = useStyles();
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(initialValue);
+  console.log(value.length === 0);
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,12 +54,16 @@ const SearchField: React.FC<Props> = ({
     [value],
   );
 
-  const handleSubmit = useCallback(() => {
-    onSubmit(value);
-  }, [value]);
+  const handleSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      onSubmit(value);
+    },
+    [value],
+  );
 
   return (
-    <div className={classes.searchWrapper}>
+    <form className={classes.searchWrapper} onSubmit={handleSubmit}>
       <TextField
         {...props}
         value={value}
@@ -69,8 +76,8 @@ const SearchField: React.FC<Props> = ({
           className={classes.buttonSearch}
           variant="contained"
           color="primary"
-          disabled={loading}
-          onClick={() => handleSubmit()}
+          disabled={loading || value.length === 0}
+          type="submit"
         >
           {searchLabel}
         </Button>
@@ -78,7 +85,7 @@ const SearchField: React.FC<Props> = ({
           <CircularProgress size={24} className={classes.buttonProgress} />
         )}
       </div>
-    </div>
+    </form>
   );
 };
 

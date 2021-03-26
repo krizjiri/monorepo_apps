@@ -1,21 +1,24 @@
 import React from 'react';
-import { Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import { nanoid } from 'nanoid';
 
 import { GridList, GridListProps } from '@monorepo-test/shared/frontend/ui';
 import { ResponseItem } from '@monorepo-test/shared/types';
-import { object } from '@storybook/addon-knobs';
+import { object, withKnobs } from '@storybook/addon-knobs';
 
 export default {
   component: GridList,
   title: 'Design system/Molecules/Grid list',
-};
+  decorators: [withKnobs],
+  params: {
+    layout: 'centered',
+  },
+} as Meta;
 
 const getItem = (): ResponseItem => ({
   id: nanoid(),
   name: 'Card example',
-  imgUrl:
-    'https://www.barrandov.tv/obrazek/202001/5e145c6414a40/crop-315674-vystrizek_897x505.jpg',
+  imgUrl: 'https://i.imgur.com/e5ufyNO.jpeg',
   mediaType: 'movie',
 });
 

@@ -23,6 +23,15 @@ const useStyles = makeStyles({
     height: 200,
     width: 300,
   },
+  title: {
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+  },
+  description: {
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+  },
 });
 
 const CardItem: React.FC<Props> = ({ title, description, imgUrl }) => {
@@ -33,10 +42,20 @@ const CardItem: React.FC<Props> = ({ title, description, imgUrl }) => {
       <CardActionArea>
         <CardMedia className={classes.media} image={imgUrl} title={title} />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography
+            className={classes.title}
+            gutterBottom
+            variant="h5"
+            component="h2"
+          >
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography
+            className={classes.description}
+            variant="body2"
+            color="textSecondary"
+            component="p"
+          >
             {description}
           </Typography>
         </CardContent>

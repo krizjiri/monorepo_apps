@@ -1,13 +1,10 @@
 import React from 'react';
-import { Story } from '@storybook/react';
-import { text, radios } from '@storybook/addon-knobs';
+import { Meta, Story } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import { Button, ButtonProps } from '@monorepo-test/shared/frontend/ui';
-
-export default {
-  component: Button,
-  title: 'Design system/Atoms/Button',
-};
+import { action, withActions } from '@storybook/addon-actions';
+import { Box } from '@material-ui/core';
 
 const Primary: Story<ButtonProps> = args => (
   <Button color={'primary'} variant={'contained'} {...args}>
@@ -28,25 +25,57 @@ const Link: Story<ButtonProps> = args => (
 );
 
 const ButtonPlayground: Story<ButtonProps> = args => {
-  const buttonText = text('Button text', 'Submit');
-  const color = radios<'primary' | 'secondary'>(
-    'Color',
-    { primary: 'primary', secondary: 'secondary' },
-    'primary',
-  );
-  const variant = radios<'text' | 'outlined' | 'contained'>(
-    'Variant',
-    { text: 'text', outlined: 'outlined', contained: 'contained' },
-    'contained',
-  );
-
   return (
-    <Button color={color} variant={variant} {...args}>
-      {buttonText}
+    <Button
+      // color={color}
+      // variant={variant}
+      onClick={action('button-click')}
+      {...args}
+    >
+      {args.children}
     </Button>
   );
 };
 
-ButtonPlayground.args = {};
+ButtonPlayground.args = {
+  color: 'primary',
+  variant: 'contained',
+  children: 'Hello',
+  disabled: false,
+};
 
 export { ButtonPlayground, Primary, Secondary, Link };
+
+export default {
+  component: Button,
+  title: 'Design system/Atoms/Button',
+  decorators: [
+    (Story: Story) => (
+      <Box margin={1}>
+        <Story />
+      </Box>
+    ),
+    withKnobs,
+    withActions,
+  ],
+  parameters: {
+    layout: 'centered',
+  },
+  args: {
+    color: 'primary',
+  },
+  argTypes: {
+    color: {
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary'],
+      },
+    },
+    variant: {
+      control: {
+        type: 'select',
+        options: ['contained', 'outlined', 'text'],
+      },
+    },
+  },
+} as Meta;

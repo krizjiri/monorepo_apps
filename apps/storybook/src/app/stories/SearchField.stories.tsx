@@ -1,27 +1,41 @@
 import React from 'react';
-import { Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 
 import {
   SearchField,
   SearchFieldProps,
 } from '@monorepo-test/shared/frontend/ui';
-import { action } from '@storybook/addon-actions';
-import { boolean } from '@storybook/addon-knobs';
 
 export default {
   component: SearchField,
   title: 'Design system/Molecules/Search Field',
-  argTypes: { onClick: { argTypesRegex: '^on.*' } },
-};
+  parameters: { layout: 'centered' },
+  args: {
+    initialValue: 'Search text',
+    loading: false,
+    error: false,
+  },
+  argTypes: {
+    onSubmit: {
+      action: 'search executed',
+      description: 'Callback function, searched value as function param',
+    },
+    initialValue: {
+      description: 'Initial value of SearchField, set before user interaction',
+    },
+    loading: {
+      defaultValue: { summary: false },
+      description: 'Indicates search execution, search is disabled when true',
+    },
+    error: {
+      defaultValue: { summary: false },
+      description: 'Indicates failed search',
+    },
+  },
+} as Meta;
 
 const SearchFieldPlayground: Story<SearchFieldProps> = args => {
-  const loading = boolean('Loading', false);
-
-  return (
-    <SearchField loading={loading} onSubmit={action('onSubmit')} {...args} />
-  );
+  return <SearchField {...args} />;
 };
-
-SearchFieldPlayground.args = {};
 
 export { SearchFieldPlayground };

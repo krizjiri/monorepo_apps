@@ -5,12 +5,12 @@ import {
   SearchFieldProps,
 } from '../../Molecules/SearchField/SearchField';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '2rem',
-    marginBottom: '2rem',
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(4),
   },
   searchField: {
     width: '700px',

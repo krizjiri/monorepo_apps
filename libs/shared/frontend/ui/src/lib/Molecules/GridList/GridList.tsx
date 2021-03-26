@@ -8,9 +8,8 @@ import { ResponseItem } from '@monorepo-test/shared/types';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-  },
-  gridList: {
-    width: 1100,
+    maxWidth: 1300,
+    margin: 'auto',
   },
   gridItem: {
     ':hover': {

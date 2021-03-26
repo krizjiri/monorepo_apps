@@ -22,6 +22,13 @@
       }
     },
     {
+      "files": ["*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "rules": {
+        "react-hooks/rules-of-hooks": "error"
+      }
+    },
+    {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {

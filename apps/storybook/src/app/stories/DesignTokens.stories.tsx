@@ -1,9 +1,11 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
+import { Meta } from '@storybook/react';
 
 export default {
   title: 'Design tokens/Palette',
-};
+  parameters: { layout: 'centered' },
+} as Meta;
 
 type ColorType = {
   label: string;
@@ -18,8 +20,8 @@ const colors: ColorType[] = [
   { label: 'Warning', colorPath: 'warning.main' },
   { label: 'Error', colorPath: 'error.main' },
   { label: 'Text', colorPath: 'text.primary' },
-  { label: 'Text', colorPath: 'text.secondary' },
-  { label: 'Text', colorPath: 'text.disabled' },
+  { label: 'Text secondary', colorPath: 'text.secondary' },
+  { label: 'Text disabled', colorPath: 'text.disabled' },
 ];
 
 const getFormattedText = (text: string) => (
