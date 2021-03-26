@@ -13,5 +13,7 @@ module.exports = {
     '<rootDir>/libs/shared/endpoints',
     '<rootDir>/libs/shared/frontend/ui2',
     '<rootDir>/apps/storybook',
+    '<rootDir>/libs/frontend/utils',
+    '<rootDir>/libs/shared/frontend/utils',
   ],
 };

@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "react-hooks"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -25,7 +25,8 @@
       "files": ["*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {
-        "react-hooks/rules-of-hooks": "error"
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "off"
       }
     },
     {

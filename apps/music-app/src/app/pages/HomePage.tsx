@@ -16,6 +16,7 @@ const HomePage: React.FC = () => {
     <HomeTemplate
       pageTitle={'Music'}
       searchTitle={'Music search'}
+      variant="movie"
       fetchList={fetchList}
       data={data}
       reset={reset}

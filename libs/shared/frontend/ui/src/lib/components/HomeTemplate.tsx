@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { ResponseItem, SearchItemRequest } from '@monorepo-test/shared/types';
 import { Payload } from '@monorepo-test/shared/frontend/hooks';
-import { Page } from '../../Organisms/Page/Page';
-import { GridList } from '../../Molecules/GridList/GridList';
-import { SearchBar } from '../../Organisms/SearchBar/SearchBar';
+import { SearchBar } from './SearchBar';
+import { GridList } from './GridList';
+import { Page } from './Page';
 
 type Props = {
-  pageTitle: string;
   searchTitle: string;
+  pageTitle: string;
   fetchList: (request: Payload<ResponseItem[], SearchItemRequest>) => void;
   data: ResponseItem[];
   loading?: boolean;
   reset?: () => void;
+  variant?: 'movie' | 'music';
 };
 
 const HomeTemplate: React.FC<Props> = ({
-  pageTitle,
   searchTitle,
   data = [],
   fetchList,
@@ -37,7 +37,7 @@ const HomeTemplate: React.FC<Props> = ({
   }, [searchValue]);
 
   return (
-    <Page title={pageTitle}>
+    <Page loading={loading}>
       <SearchBar
         label={searchTitle}
         onSubmit={setSearchValue}

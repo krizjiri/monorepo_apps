@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { RouteType } from '@monorepo-test/shared/types';
-import { NoMatch } from '../NoMatch/NoMatch';
+import { NoMatch } from '@monorepo-test/shared/frontend/ui';
 
 type Props = {
   routes: RouteType[];

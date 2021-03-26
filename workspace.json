@@ -496,6 +496,29 @@
           "options": { "lintFilePatterns": ["apps/storybook-e2e/**/*.{js,ts}"] }
         }
       }
+    },
+    "shared-frontend-utils": {
+      "root": "libs/shared/frontend/utils",
+      "sourceRoot": "libs/shared/frontend/utils/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/frontend/utils/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/frontend/utils"],
+          "options": {
+            "jestConfig": "libs/shared/frontend/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

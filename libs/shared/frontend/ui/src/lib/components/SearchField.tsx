@@ -4,9 +4,9 @@ import {
   makeStyles,
   TextFieldProps,
 } from '@material-ui/core';
-
-import { TextField } from '../../Atoms/TextField/TextField';
-import { Button } from '../../Atoms/Button/Button';
+import SearchIcon from '@material-ui/icons/Search';
+import { TextField } from './TextField';
+import { Button } from './Button';
 
 type Props = {
   onSubmit: (value: string) => void;
@@ -18,12 +18,14 @@ type Props = {
 const useStyles = makeStyles(theme => ({
   searchWrapper: {
     display: 'flex',
+    width: '100%',
   },
   buttonWrapper: {
     position: 'relative',
   },
   buttonSearch: {
     marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     height: '100%',
   },
   buttonProgress: {
@@ -45,7 +47,6 @@ const SearchField: React.FC<Props> = ({
 }) => {
   const classes = useStyles();
   const [value, setValue] = useState(initialValue);
-  console.log(value.length === 0);
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,12 +56,17 @@ const SearchField: React.FC<Props> = ({
   );
 
   const handleSubmit = useCallback(
-    (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
+    (event?: React.FormEvent<HTMLFormElement>) => {
+      event?.preventDefault();
       onSubmit(value);
     },
     [value],
   );
+
+  const handleReset = useCallback(() => {
+    setValue(initialValue);
+    handleSubmit();
+  }, [initialValue]);
 
   return (
     <form className={classes.searchWrapper} onSubmit={handleSubmit}>
@@ -74,17 +80,25 @@ const SearchField: React.FC<Props> = ({
       <div className={classes.buttonWrapper}>
         <Button
           className={classes.buttonSearch}
-          variant="contained"
           color="primary"
+          variant="contained"
           disabled={loading || value.length === 0}
           type="submit"
         >
+          <SearchIcon />
           {searchLabel}
         </Button>
         {loading && (
           <CircularProgress size={24} className={classes.buttonProgress} />
         )}
       </div>
+      <Button
+        variant="outlined"
+        onClick={handleReset}
+        disabled={loading || value.length === 0}
+      >
+        Reset
+      </Button>
     </form>
   );
 };

@@ -11,9 +11,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-type Props = {};
-
-const Loader: React.FC<Props> = () => {
+const Loader: React.FC = () => {
   const styles = useStyles();
 
   return (

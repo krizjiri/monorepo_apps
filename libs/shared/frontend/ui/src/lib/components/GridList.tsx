@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 
-import { Loader } from '../../Atoms/Loader/Loader';
-import { CardItem } from '../../Molecules/CardItem/CardItem';
 import { ResponseItem } from '@monorepo-test/shared/types';
+import { CardItem } from './CardItem';
+import { Loader } from './Loader';
 
 const useStyles = makeStyles(theme => ({
   root: {

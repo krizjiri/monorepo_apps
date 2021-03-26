@@ -34,6 +34,7 @@
     "shared-frontend-api": { "tags": [] },
     "shared-frontend-ui": { "tags": [] },
     "storybook": { "tags": [] },
-    "storybook-e2e": { "tags": [], "implicitDependencies": ["storybook"] }
+    "storybook-e2e": { "tags": [], "implicitDependencies": ["storybook"] },
+    "shared-frontend-utils": { "tags": [] }
   }
 }

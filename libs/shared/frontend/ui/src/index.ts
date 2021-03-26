@@ -1,20 +1,20 @@
-// atoms
-export * from '../../ui/src/lib/Atoms/Button/Button';
-export * from '../../ui/src/lib/Atoms/Loader/Loader';
-export * from '../../ui/src/lib/Atoms/TextField/TextField';
+// UI constants
+export * from 'libs/shared/frontend/ui/src/lib/constants/ui';
 
-// molecules
-export * from '../../ui/src/lib/Molecules/GridItem/GridItem';
-export * from '../../ui/src/lib/Molecules/GridList/GridList';
-export * from '../../ui/src/lib/Molecules/NoMatch/NoMatch';
-export * from '../../ui/src/lib/Molecules/Router/Router';
-export * from '../../ui/src/lib/Molecules/SearchField/SearchField';
-export * from '../../ui/src/lib/Molecules/CardItem/CardItem';
-
-// organisms
-export * from '../../ui/src/lib/Organisms/AppBar/AppBar';
-export * from '../../ui/src/lib/Organisms/Page/Page';
-export * from '../../ui/src/lib/Organisms/SearchBar/SearchBar';
-
-// templates
-export * from '../../ui/src/lib/Template/HomeTemplate/HomeTemplate';
+// UI components
+export * from 'libs/shared/frontend/ui/src/lib/components/AppBar';
+export * from 'libs/shared/frontend/ui/src/lib/components/Button';
+export * from 'libs/shared/frontend/ui/src/lib/components/CardItem';
+export * from 'libs/shared/frontend/ui/src/lib/components/Drawer';
+export * from 'libs/shared/frontend/ui/src/lib/components/DrawerItem';
+export * from 'libs/shared/frontend/ui/src/lib/components/GridItem';
+export * from 'libs/shared/frontend/ui/src/lib/components/GridList';
+export * from 'libs/shared/frontend/ui/src/lib/components/HomeTemplate';
+export * from 'libs/shared/frontend/ui/src/lib/components/Layout';
+export * from 'libs/shared/frontend/ui/src/lib/components/Loader';
+export * from 'libs/shared/frontend/ui/src/lib/components/NoMatch';
+export * from 'libs/shared/frontend/ui/src/lib/components/SearchBar';
+export * from 'libs/shared/frontend/ui/src/lib/components/SearchField';
+export * from 'libs/shared/frontend/ui/src/lib/components/TextField';
+export * from 'libs/shared/frontend/ui/src/lib/components/Router';
+export * from 'libs/shared/frontend/ui/src/lib/components/Page';

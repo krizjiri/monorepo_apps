@@ -1,5 +1,6 @@
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { configureActions } from '@storybook/addon-actions';
+import { AppConfig } from '@monorepo-test/shared/frontend/utils';
 
 configureActions({
   depth: 100,
@@ -17,11 +18,12 @@ export const parameters = {
 
 export const decorators = [
   (Story, Context) => {
-    console.log(Context);
     return (
-      <ThemeProvider theme={theme}>
-        <Story {...Context} />
-      </ThemeProvider>
+      <AppConfig variant="movie" appName="storybook">
+        <ThemeProvider theme={theme}>
+          <Story {...Context} />
+        </ThemeProvider>
+      </AppConfig>
     );
   },
 ];

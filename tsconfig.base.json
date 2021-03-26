@@ -27,6 +27,10 @@
       ],
       "@monorepo-test/shared/frontend/ui": [
         "libs/shared/frontend/ui/src/index.ts"
+      ],
+      "@monorepo-test/frontend/utils": ["libs/frontend/utils/src/index.ts"],
+      "@monorepo-test/shared/frontend/utils": [
+        "libs/shared/frontend/utils/src/index.ts"
       ]
     },
     "noImplicitAny": true,
