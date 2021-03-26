@@ -12,7 +12,7 @@ const searchDeezerMusic = async (searchName: string) => {
 
     return transformMusicSearchToResponse(response.data);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return [];
   }
 };
