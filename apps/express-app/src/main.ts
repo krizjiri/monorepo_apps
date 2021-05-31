@@ -28,6 +28,9 @@ app.use(
   }),
 );
 
+app.use(express.static(CLIENT_BUILD_PATH));
+
+
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to express-app!' });
 });
