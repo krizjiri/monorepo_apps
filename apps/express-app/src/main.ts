@@ -20,19 +20,32 @@ const {
 
 const app = express();
 
-const CLIENT_BUILD_PATH = path.join(__dirname, '../movies-app');
+const MOVIES_BUILD_PATH = path.join(__dirname, '../movies-app');
+const MUSIC_BUILD_PATH = path.join(__dirname, '../music-app');
+const STORYBOOK_BUILD_PATH = path.join(__dirname, '../storybook')
 
-app.use(express.static(CLIENT_BUILD_PATH));
+app.use(cors());
+app.use('/movies-app', express.static(MOVIES_BUILD_PATH))
+app.use('/music-app', express.static(MUSIC_BUILD_PATH))
+app.use('/storybook', express.static(STORYBOOK_BUILD_PATH))
 
+
+app.get('/storybook/*', (request, response) => {
+  response.sendFile(path.join(STORYBOOK_BUILD_PATH, 'index.html'));
+});
+
+
+app.get('/movies-app/*', (request, response) => {
+  response.sendFile(path.join(MOVIES_BUILD_PATH, 'index.html'));
+});
+
+app.get('/music-app/*', (request, response) => {
+  response.sendFile(path.join(MUSIC_BUILD_PATH, 'index.html'));
+});
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to express-app!' });
 });
-
-app.get('*', (request, response) => {
-  response.sendFile(path.join(CLIENT_BUILD_PATH, 'index.html'));
-});
-
 
 app.get<unknown, ResponseItem[], unknown, SearchItemRequest>(
   searchMusicPath,
@@ -59,7 +72,7 @@ app.get(getMusicDetail, async (req, res) => {
   res.send('Music detail');
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });

@@ -23,6 +23,7 @@ const HomeTemplate: React.FC<Props> = ({
   reset,
 }) => {
   const [searchValue, setSearchValue] = useState('');
+  console.log(process.env.PORT)
 
   useEffect(() => {
     if (searchValue.length === 0) {

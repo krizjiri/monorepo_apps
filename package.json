@@ -5,7 +5,7 @@
   "scripts": {
     "nx": "nx",
     "start": "node dist/apps/express-app/main.js",
-    "build": "yarn nx run-many --target=build --projects=express-app,movies-app --parallel=true",
+    "build": "yarn nx run-many --target=build --projects=express-app,movies-app,music-app,storybook --parallel=true",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
