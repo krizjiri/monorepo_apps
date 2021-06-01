@@ -59,7 +59,7 @@ app.get(getMusicDetail, async (req, res) => {
   res.send('Music detail');
 });
 
-const port = process.env.port || 3333;
+const port = process.env.PORT || 5000;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });
