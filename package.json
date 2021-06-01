@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "start": "node dist/apps/express-app/main.js\n",
+    "start": "yarn start",
     "build": "yarn nx run-many --target=build --projects=express-app,movies-app --parallel=true",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",

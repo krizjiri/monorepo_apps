@@ -22,12 +22,6 @@ const app = express();
 
 const CLIENT_BUILD_PATH = path.join(__dirname, '../movies-app');
 
-app.use(
-  cors({
-    origin: '*',
-  }),
-);
-
 app.use(express.static(CLIENT_BUILD_PATH));
 
 
